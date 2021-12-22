@@ -6,22 +6,22 @@ on:
      main
 
 jobs:
-  checks:
+  preparation:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v1
       with:
         python-version: '3.8'
 
     - name: Cache Dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v1
       id: cache
       with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/dev-requirements.txt') }}
+        path: ${{ env.pythonLocation }}
+        key: ${{ env.pythonLocation }}-pip-${{ hashFiles('dev-requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
     - name: Install Dependencies
@@ -30,3 +30,6 @@ jobs:
         echo "Installing dependencies and caching them."
         python -m pip install --upgrade pip
         pip install -r dev-requirements.txt
+    - name: Lint
+      run: |
+        pylint bot.py
