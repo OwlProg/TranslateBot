@@ -11,7 +11,7 @@ bot = telebot.TeleBot(os.environ.get('TOKEN'))
 
 def send_welcome(message):
     """ Welcome message for new users """
-    bot.reply_to(message, "Привет! Я junior-переводчик с русского на английский. Попробуй :)")
+    bot.reply_to(message, "Hi! Я junior-переводчик с русского на английский. Попробуй :)")
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
