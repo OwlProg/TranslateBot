@@ -2,8 +2,8 @@ name: Telegram Translate Bot
  
 on:
  push:
-   branches:
-     main
+  release:
+    types: [released]
 
 jobs:
   preparation:
