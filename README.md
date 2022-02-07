@@ -6,7 +6,7 @@
 
 ## Ссылка на бота
 
-https://t.me/HackDreamBot
+https://t.me/HackDreamBot (на данный момент отключён от сервера)
 
 ## Что он умеет?
 
